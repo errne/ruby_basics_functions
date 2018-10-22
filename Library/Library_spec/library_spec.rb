@@ -28,29 +28,38 @@ class TestLibrary < MiniTest::Test
   end
 
   def test_books_array
-    #library1 = Library.new(books)
-    assert_equal(2, @books.length)
+    assert_equal(2, @library1.books.length)
   end
 
   def test_book_info_by_title
+    assert_equal(@library1.books[1], @library1.check_book_info("lord_of_the_flies"))
     assert_equal(@books[1], @library1.check_book_info("lord_of_the_flies"))
+  end
+
+  def test_book_info_by_title__not_found
+    assert_equal("book not found", @library1.check_book_info("kill_the_flies"))
   end
 
   def test_book_rental_details_by_title
     assert_equal(@books[1][:rental_details],
       @library1.check_book_rental_details("lord_of_the_flies"))
-    end
+  end
+
+  def test_book_rental_details_by_title__not_found
+    assert_equal("book not found",
+      @library1.check_book_rental_details("save_the_flies"))
+  end
 
     def test_add_new_book
-      @library1.add_new_book("Ruby for dummies")
+      @library1.add_new_book("ruby_for_dummies")
       assert_equal(3, @books.length)
-      assert_equal(@books[-1], @library1.check_book_info("Ruby for dummies"))
+      assert_equal(@books[-1], @library1.check_book_info("ruby_for_dummies"))
     end
 
-  def test_change_renting_details
-    @library1.change_renting_details("lord_of_the_flies",
-      "Chris", "01/12/19")
-      assert_equal("01/12/19", @books[1][:rental_details][:date])
-      assert_equal("Chris", @books[1][:rental_details][:student_name])
-  end
+    def test_change_renting_details
+      @library1.change_renting_details("lord_of_the_flies",
+        "Chris", "01/12/19")
+        assert_equal("01/12/19", @books[1][:rental_details][:date])
+        assert_equal("Chris", @books[1][:rental_details][:student_name])
       end
+    end

@@ -6,31 +6,32 @@ class Library
   end
 
   def check_book_info(book_name)
-    the_book = nil
+    the_book = "book not found"
     for book in books
       if book[:title] == book_name
         the_book = book
       end
     end
-      return the_book
-    end
+    return the_book
+  end
 
-    def check_book_rental_details(book_name)
-      rental_details = nil
-      for book in books
-        if book[:title] == book_name
-          rental_details = book[:rental_details]
-        end
+  def check_book_rental_details(book_name)
+    rental_details = "book not found"
+    for book in books
+      if book[:title] == book_name
+        rental_details = book[:rental_details]
       end
-        return rental_details
     end
+    return rental_details
+  end
 
-    def add_new_book(book_name)
-      @books << {        title: book_name,
-        rental_details: {
-          student_name: "",
-          date: ""}
-        }
+  def add_new_book(book_name)
+    @books << {
+      title: book_name,
+      rental_details: {
+      student_name: "",
+      date: ""}
+      }
     end
 
     def change_renting_details(book_name, student_name, due_date)
