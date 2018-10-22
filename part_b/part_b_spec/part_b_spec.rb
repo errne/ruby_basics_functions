@@ -43,6 +43,13 @@ class TestPart_B < MiniTest::Test
     assert_equal(true, check)
   end
 
+  def test_player_in_array__not_found
+    players = ["Ernest", "Chris"]
+    team1 = Team.new("Strings", players, "Borna")
+    check = team1.check_player("Dr Ernest")
+    assert_equal(false, check)
+  end
+
   def test_get_points
     players = ["Ernest", "Chris"]
     team1 = Team.new("Strings", players, "Borna")
@@ -63,7 +70,7 @@ class TestPart_B < MiniTest::Test
     assert_equal(1, team2.points)
   end
 
-  def test_team_points__draw
+  def test_team_points__loss
     players = ["Ernest", "Chris"]
     team3 = Team.new("Strings", players, "Borna")
     team3.result("loss")
