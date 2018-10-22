@@ -33,6 +33,12 @@ class TestPart_A < MiniTest::Test
 
   def test_favourite_language
     student3 = Student.new("Alex", "G9")
-    assert_equal("I love Java", student3.say_favourite_language("Java"))
+    assert_equal("I love Ruby", student3.say_favourite_language("Ruby"))
+  end
+
+  def test_say_everything
+    student4 = Student.new("Ernest", "E26")
+    assert_equal("My name is Ernest and I am in E26 cohort. My favourite language is Java.",
+      student4.say_everything("Java"))
   end
 end

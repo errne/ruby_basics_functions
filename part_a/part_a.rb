@@ -29,4 +29,8 @@ class Student
     return "I love #{fav_language}"
   end
 
+  def say_everything(fav_language)
+    return "My name is " + @name + " and I am in " + @cohort + " cohort. My favourite language is #{fav_language}."
+  end
+
 end
