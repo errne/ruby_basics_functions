@@ -37,7 +37,7 @@ class TestLibrary < MiniTest::Test
   end
 
   def test_book_info_by_title__not_found
-    assert_equal("book not found", @library1.check_book_info("kill_the_flies"))
+    assert_equal(nil, @library1.check_book_info("kill_the_flies"))
   end
 
   def test_book_rental_details_by_title
@@ -46,7 +46,7 @@ class TestLibrary < MiniTest::Test
   end
 
   def test_book_rental_details_by_title__not_found
-    assert_equal("book not found",
+    assert_equal(nil,
       @library1.check_book_rental_details("save_the_flies"))
   end
 

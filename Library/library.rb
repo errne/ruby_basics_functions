@@ -6,7 +6,7 @@ class Library
   end
 
   def check_book_info(book_name)
-    the_book = "book not found"
+    the_book = nil #"book not found"
     for book in books
       if book[:title] == book_name
         the_book = book
@@ -16,12 +16,14 @@ class Library
   end
 
   def check_book_rental_details(book_name)
-    rental_details = "book not found"
-    for book in books
-      if book[:title] == book_name
-        rental_details = book[:rental_details]
-      end
-    end
+    rental_details = nil #"book not found" #so this is bad, nil is good
+    # for book in books
+    #   if book[:title] == book_name
+    #     rental_details = book[:rental_details]
+    #   end
+    # end
+    book = check_book_info(book_name)
+    rental_details = book[:rental_details] if book != nil
     return rental_details
   end
 
